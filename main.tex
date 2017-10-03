@@ -1,8 +1,18 @@
 %%%% Proceedings format for most of ACM conferences (with the exceptions listed below) and all ICPS volumes.
-\documentclass[manuscript, review=True]{acmart}
+\documentclass[manuscript, screen, review=True]{acmart}
+\usepackage{blindtext}
+
+\usepackage{xpatch}
+
+\makeatletter
+\xpatchcmd{\ps@firstpagestyle}{Manuscript submitted to ACM}{}{\typeout{First patch succeeded}}{\typeout{first patch failed}}
+\xpatchcmd{\ps@standardpagestyle}{Manuscript submitted to ACM}{}{\typeout{Second patch succeeded}}{\typeout{Second patch failed}}    \@ACM@manuscriptfalse% Also in titlepage
+\makeatother
+
 \settopmatter{printacmref=false} % Removes citation information below abstract
-\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference information in first column
-\pagestyle{plain} % removes running headers
+\renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference info
+\setcopyright{none}
+\pagestyle{plain} % remove running headers
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -23,6 +33,7 @@
 \usepackage{rotating}
 \usepackage{booktabs,arydshln}
 
+% define dash command
 \makeatletter
 \def\adl@drawiv#1#2#3{%
         \hskip.5\tabcolsep
@@ -78,7 +89,7 @@
 \renewcommand{\shortauthors}{Benjamin Hillmann}
 
 \begin{abstract}
-Despite the association of microbial communities with many aspects of human, environmental, plant, and animal health, there exists no cost-efficient method for precisely characterizing the species and genes present in a microbial community. Current methods that use affordable amplicon sequencing techniques cannot resolve taxonomy past the genus level and only can classify clades whose genome has the marker gene. While deep whole-genome shotgun (WGS) is able to solve these problems, the technique is prohibitively expensive for large-scale studies. To address these issues, we propose a novel computational pipeline SHOGUN using shallow whole-genome shotgun (shallow shotgun) sequencing that recovers accurate taxonomic profiles of human microbiomes. We show that by sequencing at fraction of the cost and depth of WGS surveys, we can provide nearly the same measured species-level taxonomic profile. We demonstrate the shallow shotgun results on multiple real biological datasets and simulated communities. The pipeline SHOGUN relies on whole-genome reference databases, and is therefore most useful for well-characterized environments such as the human microbiomes in the gut, skin or oral cavity. Thus, SHOGUN allows researchers to obtain near-WGS data quality at only slightly higher cost than amplicon sequencing, enabling a fundamental shift toward higher precision in human microbiome research.
+Despite the association of microbial communities with many aspects of human, environmental, plant, and animal health, there exists no cost-efficient method for precisely characterizing the species present in a microbial community. Current methods that use affordable amplicon sequencing techniques cannot resolve taxonomy past the genus level and only can classify clades whose genome has the marker gene. While deep whole-genome shotgun (WGS) is able to solve these problems, the technique is prohibitively expensive for large-scale studies. To address these issues, we propose a novel computational pipeline SHOGUN using shallow whole-genome shotgun (shallow shotgun) sequencing that recovers accurate taxonomic profiles of human microbiomes. We show that by sequencing at fraction of the cost and depth of WGS surveys, we can provide nearly the same measured species-level taxonomic profile. We demonstrate the shallow shotgun results on multiple real biological datasets and simulated communities. The pipeline SHOGUN relies on whole-genome reference databases, and is therefore most useful for well-characterized environments such as the human microbiomes in the stool, on the skin or in the oral cavity. Thus, SHOGUN allows researchers to obtain near-WGS data quality at only slightly higher cost than amplicon sequencing, enabling a fundamental shift toward higher precision in human microbiome research.
 \end{abstract}
 
 %
