@@ -1,13 +1,13 @@
 %%%% Proceedings format for most of ACM conferences (with the exceptions listed below) and all ICPS volumes.
 \documentclass[manuscript, screen, review=True]{acmart}
-\usepackage{blindtext}
+% \usepackage{blindtext}
 
-\usepackage{xpatch}
+% \usepackage{xpatch}
 
-\makeatletter
-\xpatchcmd{\ps@firstpagestyle}{Manuscript submitted to ACM}{}{\typeout{First patch succeeded}}{\typeout{first patch failed}}
-\xpatchcmd{\ps@standardpagestyle}{Manuscript submitted to ACM}{}{\typeout{Second patch succeeded}}{\typeout{Second patch failed}}    \@ACM@manuscriptfalse% Also in titlepage
-\makeatother
+% \makeatletter
+% \xpatchcmd{\ps@firstpagestyle}{Manuscript submitted to ACM}{}{\typeout{First patch succeeded}}{\typeout{first patch failed}}
+% \xpatchcmd{\ps@standardpagestyle}{Manuscript submitted to ACM}{}{\typeout{Second patch succeeded}}{\typeout{Second patch failed}}    \@ACM@manuscriptfalse% Also in titlepage
+% \makeatother
 
 \settopmatter{printacmref=false} % Removes citation information below abstract
 \renewcommand\footnotetextcopyrightpermission[1]{} % removes footnote with conference info
@@ -63,7 +63,7 @@
 % \acmISBN{123-4567-24-567/08/06}
 
 %Conference
-\acmYear{2017}
+% \acmYear{2017}
 
 % \acmArticle{4}
 % \acmPrice{15.00}
@@ -120,17 +120,13 @@ Despite the association of microbial communities with many aspects of human, env
 
 \input{body.tex}
 
-\newpage
-
-\input{availability.tex}
-
-\newpage
-
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{Zotero}
 
-\newpage
+\appendix
+\input{availability.tex}
 
+\newpage
 \input{figures.tex}
 
 \end{document}
